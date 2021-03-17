@@ -14,7 +14,7 @@
         android:background="@color/colorPrimaryDark"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="12dp">
+        android:padding="22dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -22,7 +22,10 @@
             android:text="How are you feeling today?"
             android:textColor="#fff"
             android:textSize="18sp"
+            android:layout_marginTop="9dp"
             android:textStyle="bold" />
+
+
 
     </LinearLayout>
 

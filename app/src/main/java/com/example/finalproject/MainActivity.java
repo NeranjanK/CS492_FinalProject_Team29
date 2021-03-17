@@ -28,6 +28,32 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
+
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toolbar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+
+
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -62,7 +88,45 @@ public class MainActivity extends AppCompatActivity {
 
         doWeatherSearch();
 
+
+
+
+
     }
+
+
+
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+
+    }
+
+    // Determines if Action bar item was selected. If true then do corresponding action.
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        //handle presses on the action bar items
+        int id = item.getItemId();
+
+        if (id==R.id.action_camera){
+
+            Intent intent = new Intent(MainActivity.this,Camera.class);
+            startActivity(intent);
+
+            return true;
+        }
+
+
+        return super.onOptionsItemSelected(item);
+
+    }
+
+
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {

@@ -76,8 +76,8 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoItemVie
             authorTV.setText(authorNames.get(position));
 
             Glide.with(ctx)
-                .load(imageUrls.get(position))
-                .into(photoIV);
+                    .load(imageUrls.get(position))
+                    .into(photoIV);
 
 
 
