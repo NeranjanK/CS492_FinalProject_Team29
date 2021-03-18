@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         forecastListRV.setAdapter(photoAdapter);
         photoAdapter.updatePhotoResults(this.photos);
 
-        doWeatherSearch();
+        doPhotoSearch();
 
 
 
@@ -136,52 +136,9 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-
-//        //handle presses on the action bar items
-//        int id = item.getItemId();
-//
-//        com.google.android.apps.photos
-//        if (id==R.id.action_camera){
-//
-//            Intent intent = new Intent(MainActivity.this,Camera.class);
-//            startActivity(intent);
-//
-//            return true;
-//        }
-
-//        return super.onOptionsItemSelected(item);
-
     }
 
-
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.mainactivity, menu);
-//        return true;
-//    }
-
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.action_view_map:
-//                viewOnMap();
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
-
-//    private void viewOnMap() {
-//        Uri gmmIntentUri = Uri.parse("geo:44.5646,123.2620");
-//        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-//        mapIntent.setPackage("com.google.android.apps.maps");
-//        if (mapIntent.resolveActivity(getPackageManager()) != null) {
-//            startActivity(mapIntent);
-//        }
-//    }
-
-    private void doWeatherSearch() {
+    private void doPhotoSearch() {
         String url = UnsplashUtils.buildUnsplashUrl("happy", "wTR5nfFF1E5Qib5cwQ59RZubNJQQBHafy-v1RPEMoGU");
         Log.d(TAG, "querying search URL: " + url);
         new WeatherSearchTask().execute(url);
@@ -207,13 +164,6 @@ public class MainActivity extends AppCompatActivity {
             return results;
         }
 
-//        @Override
-//        public boolean onCreateOptionsMenu(Menu menu) {
-//            getMenuInflater().inflate(R.menu.main, menu);
-//            return true;
-//        }
-
-
         @Override
         protected void onPostExecute(String results) {
             loadingIndicatorPB.setVisibility(View.INVISIBLE);
@@ -230,10 +180,7 @@ public class MainActivity extends AppCompatActivity {
                         JSONObject individualImage = resultsArr.getJSONObject(i);
 
                         JSONObject urls = individualImage.getJSONObject("urls");
-
-//                        JSONObject smallURL = urls.getJSONObject("small");
-
-                        imageURLs.add(urls.getString("small"));
+                        imageURLs.add(urls.getString("regular"));
 
                         JSONObject user = individualImage.getJSONObject("user");
 
@@ -246,15 +193,10 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "Image #: " + imageURLs.size());
                 Log.d(TAG, "Author Name: " + authorNames.size());
 
-//                Log.d(TAG, "result list:" + searchResultsList);
                 photos = UnsplashUtils.parseWeatherSearchResults(results);
                 photoAdapter.updatePhotoResults(photos);
-                //adapter shit here
-//                Log.d(TAG, "HERE");
-//                Log.d(TAG, "result list:" + photos);
                 errorMessageTV.setVisibility(View.INVISIBLE);
             } else {
-//                searchResultsRV.setVisibility(View.INVISIBLE);
                 Log.d(TAG, "Results = null");
                 errorMessageTV.setVisibility(View.VISIBLE);
             }

@@ -18,9 +18,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject">
         <activity android:name=".Camera" />
+
         <activity android:name=".SettingsActivity"
             android:parentActivityName=".MainActivity"/>
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".MainActivity"
+            android:launchMode="singleTop">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
