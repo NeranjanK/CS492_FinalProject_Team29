@@ -10,16 +10,19 @@
     <string name="action_settings">Settings</string>
 
     <!-- Strings for sort-by preference -->
-    <string name="pref_sort_key" translatable="false">pref_sort</string>
-    <string name="pref_sort_title">How are you feeling today?</string>
-    <string name="pref_sort_entry_best_match">Best match</string>
-    <string name="pref_sort_entry_stars">Stars</string>
-    <string name="pref_sort_value_stars" translatable="false">stars</string>
-    <string name="pref_sort_entry_forks">Forks</string>
-    <string name="pref_sort_value_forks" translatable="false">forks</string>
-    <string name="pref_sort_entry_updated">Most-recently updated</string>
-    <string name="pref_sort_value_updated" translatable="false">updated</string>
-    <string name="pref_sort_default">@string/pref_sort_value_stars</string>
+    <string name="pref_mood_key" translatable="false">pref_mood</string>
+    <string name="pref_mood_title">How are you feeling today?</string>
+    <string name="pref_mood_happy">Happy</string>
+    <string name="pref_mood_value_happy" translatable="false">happy</string>
+    <string name="pref_mood_sad">Sad</string>
+    <string name="pref_mood_value_sad" translatable="false">sad</string>
+    <string name="pref_mood_angry">Angry</string>
+    <string name="pref_mood_value_angry" translatable="false">angry</string>
+    <string name="pref_mood_emo">Emo</string>
+    <string name="pref_mood_value_emo" translatable="false">emo</string>
+    <string name="pref_mood_entry_updated">Most-recently updated</string>
+    <string name="pref_mood_value_updated" translatable="false">updated</string>
+    <string name="pref_mood_default">@string/pref_mood_value_sad</string>
 
     <!-- Strings for programming language preference -->
     <string name="pref_language_key" translatable="false">pref_language</string>
