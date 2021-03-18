@@ -16,7 +16,7 @@
     <item
         android:id="@+id/action_photos"
         android:title="Photos"
-        android:icon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/ic_action_photos1"
         app:showAsAction="always">
 
 
