@@ -110,19 +110,31 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        //handle presses on the action bar items
-        int id = item.getItemId();
-
-        if (id==R.id.action_camera){
-
-            Intent intent = new Intent(MainActivity.this,Camera.class);
-            startActivity(intent);
-
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_camera:
+                intent = new Intent(MainActivity.this,Camera.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
+//        //handle presses on the action bar items
+//        int id = item.getItemId();
+//
+//        if (id==R.id.action_camera){
+//
+//            Intent intent = new Intent(MainActivity.this,Camera.class);
+//            startActivity(intent);
+//
+//            return true;
+//        }
 
-        return super.onOptionsItemSelected(item);
+//        return super.onOptionsItemSelected(item);
 
     }
 
@@ -179,6 +191,13 @@ public class MainActivity extends AppCompatActivity {
             }
             return results;
         }
+//
+//        @Override
+//        public boolean onCreateOptionsMenu(Menu menu) {
+//            getMenuInflater().inflate(R.menu.main, menu);
+//            return true;
+//        }
+
 
         @Override
         protected void onPostExecute(String results) {

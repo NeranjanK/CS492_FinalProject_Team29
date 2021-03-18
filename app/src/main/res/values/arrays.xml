@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pref_sort_entries">
+        <item>Happy</item>
+        <item>Sad</item>
+        <item>Angry</item>
+        <item>Emo</item>
+    </string-array>
+
+
+    <string-array name="pref_sort_values">
+        <item>happy</item>
+        <item>sad</item>
+        <item>angry</item>
+        <item>emo</item>
+    </string-array>
+</resources>
