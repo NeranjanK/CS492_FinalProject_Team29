@@ -11,10 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/shape"
+        android:fadingEdge="vertical"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="22dp">
+        android:padding="22dp"
+        android:layout_margin="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -23,7 +25,6 @@
             android:textColor="#fff"
             android:textSize="18sp"
             android:textStyle="bold" />
-
 
 
     </LinearLayout>
