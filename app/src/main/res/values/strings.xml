@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FinalProject</string>
+    <string name="app_name">Gimme!</string>
 
     <string name="search_box_hint">Search GitHub...</string>
     <string name="search_button_text">Do Search</string>
