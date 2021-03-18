@@ -19,10 +19,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="How are you feeling today?"
+            android:text="Photo results for a sad mood :("
             android:textColor="#fff"
             android:textSize="18sp"
-            android:layout_marginTop="9dp"
             android:textStyle="bold" />
 
 
@@ -36,7 +35,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_forecast_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="10dp"
+            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/tv_error_message"
@@ -46,7 +48,7 @@
             android:textAppearance="?attr/textAppearanceBody1"
             android:textColor="?attr/colorError"
             android:visibility="invisible"
-            android:text="Unable to load data!"/>
+            android:text="Unable to load data!" />
 
         <ProgressBar
             android:id="@+id/pb_loading_indicator"
