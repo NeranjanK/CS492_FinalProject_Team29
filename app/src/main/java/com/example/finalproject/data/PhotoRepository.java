@@ -6,6 +6,10 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.finalproject.MainActivity;
+
+import static com.example.finalproject.MainActivity.*;
+
 public class PhotoRepository {
     private static final String TAG = PhotoRepository.class.getSimpleName();
     private MutableLiveData<List<String>> mSearchImageUrls;
@@ -32,6 +36,7 @@ public class PhotoRepository {
         mSearchImageUrls.setValue(null);
         Log.d(TAG, "search for this query: " + query);
         // Execute search for query...
+
     }
 
 }
