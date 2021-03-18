@@ -1,6 +1,7 @@
 package com.example.finalproject.utils;
 
 import android.net.Uri;
+import android.text.TextUtils;
 
 import com.example.finalproject.data.Photos;
 import com.google.gson.Gson;
@@ -22,6 +23,12 @@ public class UnsplashUtils {
 
 
     public static String buildUnsplashUrl(String query, String clientId) {
+
+        String queryTerm = new String(query);
+
+        if(!query.equals("")){
+            queryTerm += " mood:" + query;
+        }
         return Uri.parse(UNSPLASH_BASE_URL).buildUpon()
                 .appendQueryParameter(UNSPLASH_PAGES, "1")
                 .appendQueryParameter(UNSPLASH_QUERY, query)
@@ -29,6 +36,8 @@ public class UnsplashUtils {
                 .build()
                 .toString();
     }
+
+
 
     public static ArrayList<Photos> parseWeatherSearchResults(String json) {
         Gson gson = new GsonBuilder().create();

@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
     private void doWeatherSearch() {
-        String url = UnsplashUtils.buildUnsplashUrl("sad", "wTR5nfFF1E5Qib5cwQ59RZubNJQQBHafy-v1RPEMoGU");
+        String url = UnsplashUtils.buildUnsplashUrl("happy", "wTR5nfFF1E5Qib5cwQ59RZubNJQQBHafy-v1RPEMoGU");
         Log.d(TAG, "querying search URL: " + url);
         new WeatherSearchTask().execute(url);
     }

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="pref_sort_entries">
-        <item>Happy</item>
-        <item>Sad</item>
-        <item>Angry</item>
-        <item>Emo</item>
+    <string-array name="pref_mood_entries">
+        <item>@string/pref_mood_happy</item>
+        <item>@string/pref_mood_sad</item>
+        <item>@string/pref_mood_angry</item>
+        <item>@string/pref_mood_emo</item>
     </string-array>
 
 
-    <string-array name="pref_sort_values">
-        <item>happy</item>
-        <item>sad</item>
-        <item>angry</item>
-        <item>emo</item>
+    <string-array name="pref_mood_values">
+        <item>@string/pref_mood_value_happy</item>
+        <item>@string/pref_mood_value_sad</item>
+        <item>@string/pref_mood_value_angry</item>
+        <item>@string/pref_mood_value_emo</item>
     </string-array>
 </resources>
