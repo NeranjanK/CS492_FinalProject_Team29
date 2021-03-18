@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -119,6 +120,19 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(MainActivity.this,Camera.class);
                 startActivity(intent);
                 return true;
+            case R.id.action_photos:
+                Intent i;
+                PackageManager manager = getPackageManager();
+                try {
+                    i = manager.getLaunchIntentForPackage("com.google.android.apps.photos");
+                    if (i == null)
+                        throw new PackageManager.NameNotFoundException();
+                    i.addCategory(Intent.CATEGORY_LAUNCHER);
+                    startActivity(i);
+                    return true;
+                } catch (PackageManager.NameNotFoundException e) {
+                    return false;
+                }
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -126,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
 //        //handle presses on the action bar items
 //        int id = item.getItemId();
 //
+//        com.google.android.apps.photos
 //        if (id==R.id.action_camera){
 //
 //            Intent intent = new Intent(MainActivity.this,Camera.class);
