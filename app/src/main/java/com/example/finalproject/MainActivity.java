@@ -2,10 +2,12 @@ package com.example.finalproject;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -55,7 +57,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+        implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     public ArrayList<Photos> photos;
@@ -67,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> authorNames = new ArrayList<>();
 
     public PhotoAdapter photoAdapter;
+
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,24 +92,34 @@ public class MainActivity extends AppCompatActivity {
         forecastListRV.setAdapter(photoAdapter);
         photoAdapter.updatePhotoResults(this.photos);
 
-        doPhotoSearch();
+        this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        this.sharedPreferences.registerOnSharedPreferenceChangeListener(this);
 
 
-
-
-
+        doPhotoSearch("happy");
     }
 
 
-
-
-
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        Log.d(TAG, "shared preference changed: " + key + ", value " + sharedPreferences.getString(key, ""));
+        imageURLs.clear();
+        authorNames.clear();
+        doPhotoSearch(sharedPreferences.getString(key, ""));
+        Log.d(TAG, "Searched again!");
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_menu, menu);
         return super.onCreateOptionsMenu(menu);
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        this.sharedPreferences.unregisterOnSharedPreferenceChangeListener(this);
+        super.onDestroy();
     }
 
     // Determines if Action bar item was selected. If true then do corresponding action.
@@ -138,8 +153,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void doPhotoSearch() {
-        String url = UnsplashUtils.buildUnsplashUrl("happy", "wTR5nfFF1E5Qib5cwQ59RZubNJQQBHafy-v1RPEMoGU");
+    public void doPhotoSearch(String query) {
+        String url = UnsplashUtils.buildUnsplashUrl(query, "wTR5nfFF1E5Qib5cwQ59RZubNJQQBHafy-v1RPEMoGU");
         Log.d(TAG, "querying search URL: " + url);
         new WeatherSearchTask().execute(url);
     }
